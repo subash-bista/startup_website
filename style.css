@@ -1,0 +1,232 @@
+* {
+   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav {
+
+    margin: 0;
+    padding: 8px;
+    background-color: rgb(21, 26, 31);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#nav_box {
+    display: flex;
+    justify-content: space-around;
+
+    padding: 7px;
+
+
+
+}
+
+.img_div {
+
+    width: 25%;
+}
+
+li {
+
+
+    padding: 2px;
+
+    list-style: none;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+
+    transition: all 1s;
+}
+
+span:hover {
+    transform: scale(1.5);
+    border: 2px solid white;
+    border-radius: 2px;
+    color: black;
+    background-color: white;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 1.5rem;
+    font-weight: 500;
+    border-radius: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid white;
+    padding: 0.9rem;
+    transition: all 1s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+#banner_box{
+    
+    background-image: url(./scott-graham-5fNmWej4tAA-unsplash.jpg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+
+    background-size: cover;
+   width: 100%;
+   opacity: 0.6;
+    font-weight: 700;
+    flex-direction: column;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+  
+ 
+    height: 52vh;
+
+}
+#p{
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+.sec_cont{
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+   
+  
+    height: 19rem;
+    background-color: rgb(31, 43, 53);
+    transition: all 1s;
+}
+.sec_cont:hover{
+    background-color: rgb(49, 55, 61);
+}
+/* section */
+
+#sec_rightbox{
+   
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    align-items: flex-start;
+}
+#sec_leftbox{
+    padding: 1rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+ 
+    
+}
+img{
+    border-radius:112.5px;
+    transition: all 2s;
+}
+img:hover{
+ transform: skew(10deg);
+}
+#sec_rb_h1{
+    color: white;
+    width: 100%;
+    text-align: center; 
+    margin-bottom: 1.5rem;
+
+    
+}
+#sec_rb_p{
+    color: white;
+}
+#btn{
+    height: 2.5rem;
+    width: 10rem;
+   margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: red;
+   color: white;
+   border: none;
+   padding: 2px;
+   transition: all 2s;
+}
+#btn:hover{
+    background-color: black;
+}
+@media (width<=700px){
+    .sec_cont{
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    p{
+        text-align: center;
+    }
+    #sec_test_div2{
+        flex-wrap: wrap;
+    }
+  
+}
+
+#section_testimonals{
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(31, 43, 53);
+}
+#sec_test_div2{
+   
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+#section_test_div1{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.test_h3{
+    font-size: 2rem;
+    color: rgb(224, 224, 212);
+}
+.stdi2_con{
+   
+    width: 25%;
+   text-align: center;
+   color: white;
+    
+    border-radius: 4px;
+font-size: 20px;
+background-color: rgb(23, 20, 20);
+
+transition: all 1s;
+margin: 1rem;
+
+}
+.stdi2_con:hover{
+    box-shadow: 12px 13px   #eded9f;
+    background-color: rgb(29, 34, 40);
+
+}
+.test_p{
+    font-style: italic;
+    color: rgb(224, 224, 210);
+}
