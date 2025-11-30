@@ -1,232 +1,74 @@
-* {
-   
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Reset + base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-.nav {
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-family:Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif}
+body{background:#0f1724;color:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-    margin: 0;
-    padding: 8px;
-    background-color: rgb(21, 26, 31);
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
+/* Particle Canvas (behind content) */
+#particle-canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    display:block;
 }
 
-#nav_box {
-    display: flex;
-    justify-content: space-around;
-
-    padding: 7px;
-
-
-
+/* Glassmorphism utility used across the page */
+.glass{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
 }
 
-.img_div {
+/* Small helpers (complement Tailwind classes used in HTML) */
+.hidden-md{display:none}
+@media (min-width:768px){.hidden-md{display:block}}
 
-    width: 25%;
-}
+/* Navigation (keeps layout but lightweight — Tailwind handles most) */
+nav.fixed{top:0;left:0;right:0}
+nav .max-w-6xl{max-width:72rem;margin:0 auto}
 
-li {
+/* Header visual accents — keep them responsive */
+header{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;overflow:hidden}
+header .z-10{position:relative;z-index:10}
+.header-accent{
+    position:absolute;
+    width:24rem;height:24rem;border-radius:9999px;
+    mix-blend-mode:multiply;filter:blur(3rem);opacity:.18;animation: pulse 6s ease-in-out infinite;
+}
+.header-accent.blue{background:#2563eb;top:25%;left:25%}
+.header-accent.purple{background:#7c3aed;bottom:25%;right:25%}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 
+/* Buttons used on the page */
+a[href^="tel"]{display:inline-flex;align-items:center;gap:.5rem}
+a.btn, .glass.btn{display:inline-flex;align-items:center;justify-content:center}
 
-    padding: 2px;
+/* Sections */
+section{padding:4.5rem 1.5rem}
+section.bg-slate-900{background:transparent} /* Tailwind classes remain authoritative */
+footer{padding:4.5rem 1.5rem}
 
-    list-style: none;
-}
+/* Responsive grid fallback for skills section (if Tailwind not applied) */
+.grid{display:grid;gap:1.25rem}
+@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,1fr)}}
 
-span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem;
+/* Small utility classes used in markup when Tailwind isn't processed */
+.text-center{text-align:center}
+.max-w-3xl{max-width:48rem;margin-left:auto;margin-right:auto}
+.max-w-4xl{max-width:56rem;margin-left:auto;margin-right:auto}
 
-    transition: all 1s;
-}
+/* Accessibility: visible focus outlines */
+a:focus, button:focus{outline:3px solid rgba(59,130,246,0.4);outline-offset:2px}
 
-span:hover {
-    transform: scale(1.5);
-    border: 2px solid white;
-    border-radius: 2px;
-    color: black;
-    background-color: white;
-}
+/* Minor polish to ensure images and rounded avatars behave */
+img{display:block;max-width:100%;height:auto;border-radius:9999px;transition:transform .3s ease}
+img:hover{transform:translateY(-4px)}
 
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    height: 1.5rem;
-    font-weight: 500;
-    border-radius: 1px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 1px solid white;
-    padding: 0.9rem;
-    transition: all 1s;
-}
+/* Utility for faint connecting lines color used by canvas fallback (if needed) */
+.canvas-line{stroke:rgba(255,255,255,0.06);}
 
-.btn:hover {
-    background-color: white;
-    color: black;
-}
-#banner_box{
-    
-    background-image: url(./scott-graham-5fNmWej4tAA-unsplash.jpg);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-
-    background-size: cover;
-   width: 100%;
-   opacity: 0.6;
-    font-weight: 700;
-    flex-direction: column;
-    font-size: 2rem;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 0, 0);
-  
- 
-    height: 52vh;
-
-}
-#p{
-    margin-top: 4px;
-    font-size: 13px;
-    text-align: center;
-}
-
-
-.sec_cont{
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-   
-  
-    height: 19rem;
-    background-color: rgb(31, 43, 53);
-    transition: all 1s;
-}
-.sec_cont:hover{
-    background-color: rgb(49, 55, 61);
-}
-/* section */
-
-#sec_rightbox{
-   
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    align-items: flex-start;
-}
-#sec_leftbox{
-    padding: 1rem;
-    display: flex;
-    justify-content: end;
-    align-items: center;
- 
-    
-}
-img{
-    border-radius:112.5px;
-    transition: all 2s;
-}
-img:hover{
- transform: skew(10deg);
-}
-#sec_rb_h1{
-    color: white;
-    width: 100%;
-    text-align: center; 
-    margin-bottom: 1.5rem;
-
-    
-}
-#sec_rb_p{
-    color: white;
-}
-#btn{
-    height: 2.5rem;
-    width: 10rem;
-   margin-top: 10px;
-   margin-left: auto;
-   margin-right: auto;
-   background-color: red;
-   color: white;
-   border: none;
-   padding: 2px;
-   transition: all 2s;
-}
-#btn:hover{
-    background-color: black;
-}
-@media (width<=700px){
-    .sec_cont{
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    p{
-        text-align: center;
-    }
-    #sec_test_div2{
-        flex-wrap: wrap;
-    }
-  
-}
-
-#section_testimonals{
-
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(31, 43, 53);
-}
-#sec_test_div2{
-   
-    display: flex;
-    justify-content: space-evenly;
-    
-}
-#section_test_div1{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-}
-
-.test_h3{
-    font-size: 2rem;
-    color: rgb(224, 224, 212);
-}
-.stdi2_con{
-   
-    width: 25%;
-   text-align: center;
-   color: white;
-    
-    border-radius: 4px;
-font-size: 20px;
-background-color: rgb(23, 20, 20);
-
-transition: all 1s;
-margin: 1rem;
-
-}
-.stdi2_con:hover{
-    box-shadow: 12px 13px   #eded9f;
-    background-color: rgb(29, 34, 40);
-
-}
-.test_p{
-    font-style: italic;
-    color: rgb(224, 224, 210);
-}
+/* End */
