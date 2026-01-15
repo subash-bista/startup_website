@@ -32,7 +32,16 @@ nav.fixed{top:0;left:0;right:0}
 nav .max-w-6xl{max-width:72rem;margin:0 auto}
 
 /* Header visual accents — keep them responsive */
-header{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;overflow:hidden}
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1.5rem;
+    position:relative;
+    overflow:hidden;
+    margin-top:80px; /* Push header below navbar */
+}
 header .z-10{position:relative;z-index:10}
 .header-accent{
     position:absolute;
