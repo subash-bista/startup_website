@@ -64,9 +64,58 @@ footer{padding:4.5rem 1.5rem}
 /* Accessibili ty: visible focus outlines */
 a:focus, button:focus{outline:3px solid rgba(59,130,246,0.4);outline-offset:2px}
 
-/* Minor polish to ensure images and rounded avatars behave */
-img{display:block;max-width:100%;height:auto;border-radius:9999px;transition:transform .3s ease}
-img:hover{transform:translateY(-4px)}
+
+/* Avatar styles: small circular centered photo with border and light sheen */
+.avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid rgba(255,255,255,0.12);
+    box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+/* Subtle sheen that slides on hover */
+.avatar::after {
+    content: "";
+    position: absolute;
+    left: -60%;
+    top: -10%;
+    width: 60%;
+    height: 140%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0) 60%);
+    transform: rotate(-25deg);
+    transition: transform .8s cubic-bezier(.2,.8,.2,1);
+    opacity: 0.9;
+}
+.avatar:hover::after, .avatar:focus::after {
+    transform: translateX(220%) rotate(-25deg);
+}
+@media (max-width:640px) {
+    .avatar {
+        width: 96px;
+        height: 96px;
+    }
+}
 
 /* Utility for faint connecting lines color used by canvas fallback (if needed) */
 .canvas-line{stroke:rgba(255,255,255,0.06);}
